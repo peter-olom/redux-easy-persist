@@ -1,0 +1,27 @@
+{
+  "name": "redux-easy-persist",
+  "version": "1.0.0",
+  "description": "A simple implementation of persistence for redux with minimal configuration.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "prepublish": "tsc"
+  },
+  "keywords": [
+    "redux",
+    "persist",
+    "hydrate",
+    "store",
+    "redux-middleware",
+    "simple",
+    "easy"
+  ],
+  "author": "Peter Olom",
+  "homepage": "https://github.com/peter-olom/redux-easy-persist",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "redux": "^4.0.5",
+    "typescript": "^3.9.2"
+  }
+}
