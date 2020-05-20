@@ -43,29 +43,28 @@ function createPersistor(config) {
         var getState = _a.getState;
         return function (next) { return function (action) { return __awaiter(_this, void 0, void 0, function () {
             var res, error_1, state_1, persistingState_1, whiteList, blackList, key, element, error_2;
-            var _a, _b;
-            return __generator(this, function (_c) {
-                switch (_c.label) {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
                     case 0:
                         if (!(action.type == 'HYDRATE')) return [3 /*break*/, 4];
-                        _c.label = 1;
+                        _a.label = 1;
                     case 1:
-                        _c.trys.push([1, 3, , 4]);
+                        _a.trys.push([1, 3, , 4]);
                         return [4 /*yield*/, config.storeEngine.getItem(config.persistKey)];
                     case 2:
-                        res = _c.sent();
+                        res = _a.sent();
                         Object.assign(action.payload, JSON.parse(res || "{}"));
                         return [3 /*break*/, 4];
                     case 3:
-                        error_1 = _c.sent();
+                        error_1 = _a.sent();
                         console.log('FAILED TO HYDRATE');
                         return [3 /*break*/, 4];
                     case 4:
                         // Call the next dispatch method in the middleware chain.
                         next(action);
-                        _c.label = 5;
+                        _a.label = 5;
                     case 5:
-                        _c.trys.push([5, 7, , 8]);
+                        _a.trys.push([5, 7, , 8]);
                         state_1 = getState();
                         persistingState_1 = {};
                         if (config.whiteList) {
@@ -87,15 +86,15 @@ function createPersistor(config) {
                                 }
                             }
                         }
-                        if (((_a = config.whiteList) === null || _a === void 0 ? void 0 : _a.length) == 0 && ((_b = config.blackList) === null || _b === void 0 ? void 0 : _b.length) == 0) {
+                        if (!config.whiteList && !config.blackList) {
                             Object.assign(persistingState_1, state_1);
                         }
                         return [4 /*yield*/, config.storeEngine.setItem(config.persistKey, JSON.stringify(persistingState_1))];
                     case 6:
-                        _c.sent();
+                        _a.sent();
                         return [3 /*break*/, 8];
                     case 7:
-                        error_2 = _c.sent();
+                        error_2 = _a.sent();
                         console.log('FAILED TO PERSIST STORE');
                         return [3 /*break*/, 8];
                     case 8: 
