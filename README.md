@@ -8,6 +8,11 @@ A simple implementation of persistence for redux with minimal configuration.
 ```bash
 npm install redux-easy-persist
 ```
+or 
+
+```bash
+yarn add redux-easy-persist
+```
 
 ### Usage
 
@@ -50,7 +55,7 @@ Peristor {
 	blackList?: Array<string>, // key names of reducers whose states you want excluded (optional)
 }
 
-NB: storage getItem and setItem should be promises
+NB: storeEngine getItem and setItem should be Promises
 ```
 
 Example using Expo SecureStore as Storage
