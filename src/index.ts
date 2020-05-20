@@ -60,7 +60,7 @@ export default function createPersistor(config:Persistor) {
 					}
 				}
 
-				if (config.whiteList?.length == 0 && config.blackList?.length == 0) {
+				if (!config.whiteList && !config.blackList) {
 					Object.assign(persistingState, state);
 				}
 				await config.storeEngine.setItem(config.persistKey, JSON.stringify(persistingState));

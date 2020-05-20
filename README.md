@@ -73,7 +73,18 @@ const persistor = createPersistor({
 // continue with the rest of the setup as shown in usage above
 
 ```
+### API
 
+```typescript
+  createPersistor(config: Persistor) // creates the persistor middleware
+
+  hydrate(store: Store) // dispatches the stores hydrate action
+
+  clearPersistedState(store: Store) // resets state and clears it from storage
+
+  persistWrapper(reducers: any) // receives a map of reduces and makes them persistable
+
+```
 
 ### Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
