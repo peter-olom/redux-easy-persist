@@ -1,4 +1,4 @@
-## Convineiently persist redux store for easy retrieval.
+## Conveniently persist redux store for easy retrieval.
 
 We will be exploring easy ways of persisting redux store. If you have built a react application before using redux, you must have, at some point, looked for a way to persist some data in the store, to prevent making multiple requests to get those same data.
 
