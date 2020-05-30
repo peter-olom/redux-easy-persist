@@ -76,12 +76,14 @@ export default function createPersistor(config: Persistor) {
 	};
 }
 
-export function hydrate(store: Store) {
-	store.dispatch({ type: 'HYDRATE', payload: {} });
-}
+const hydrate = (store: unknown): void => {
+	const assertStore = store as Store;
+	assertStore.dispatch({ type: 'HYDRATE', payload: {} });
+};
 
-export function clearPersistedState(store: Store) {
-	store.dispatch({ type: 'CLEAR_STATE', payload: {} });
-}
+const clearPersistedState = (store: unknown): void => {
+	const assertStore = store as Store;
+	assertStore.dispatch({ type: 'CLEAR_STATE', payload: {} });
+};
 
-export { persistWrapper };
+export { persistWrapper, hydrate, clearPersistedState };
