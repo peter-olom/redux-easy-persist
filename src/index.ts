@@ -1,6 +1,7 @@
 import { Store } from 'redux';
 import persistWrapper from './persistWrapper';
 import createPersistor from './createPersistor';
+import PersistenceGate from './PersistenceGate';
 
 const hydrate = (store: unknown): void => {
 	const assertStore = store as Store;
@@ -13,4 +14,4 @@ const clearPersistedState = (store: unknown): void => {
 };
 
 export default createPersistor;
-export { persistWrapper, hydrate, clearPersistedState };
+export { persistWrapper, hydrate, clearPersistedState, PersistenceGate };

@@ -25,7 +25,7 @@ export default (config: Persistor): Middleware => {
 			try {
 				const res = await config.storeEngine.getItem(config.persistKey);
 				if (res) {
-					Object.assign(action.payload, JSON.parse(res));
+					Object.assign(action.payload, JSON.parse(res), { hydrated: true });
 				}
 				// console.log('PERSIST MIDDLEWARE LOG', action.payload);
 			} catch (error) {
@@ -63,6 +63,10 @@ export default (config: Persistor): Middleware => {
 			if (!config.whiteList && !config.blackList) {
 				Object.assign(persistingState, state);
 			}
+
+			// never perist hydrated
+			delete persistingState.hydrated;
+
 			await config.storeEngine.setItem(config.persistKey, JSON.stringify(persistingState));
 		} catch (error) {
 			console.log('FAILED TO PERSIST STORE');
